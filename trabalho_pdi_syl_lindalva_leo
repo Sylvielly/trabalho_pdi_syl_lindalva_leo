@@ -15,4 +15,21 @@ pkg load image     %roda biblioteca
 Imagem = imread("PDI.jpg");
 imshow(Imagem);
 
-%realcar imagem
+%escala de cinza
+Img_cinza=rgb2gray(Imagem);
+figure(2)
+imshow(Img_cinza);
+figure(3)
+imhist(Imagem);
+figure(4)
+imhist(Img_cinza);
+
+%equalizando a imagem
+J=histeq(Img_cinza);
+figure(5)
+imshow(J);
+Jeq=histeq(J);
+figure(6)
+imhist(Jeq);
+figure(7)
+imshow(Jeq);
