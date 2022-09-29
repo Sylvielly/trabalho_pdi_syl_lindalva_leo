@@ -33,3 +33,13 @@ figure(6)
 imhist(Jeq);
 figure(7)
 imshow(Jeq);
+
+%ajuste na imagem
+Img_ajuste = imadjust (Img_cinza, [0.2; 0.9], [0; 1]);
+figure(8)
+imshow(Img_ajuste);
+figure(9)
+imhist(Img_ajuste);
+
+
+               
