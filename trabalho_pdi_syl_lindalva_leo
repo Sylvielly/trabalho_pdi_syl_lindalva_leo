@@ -4,7 +4,7 @@
 %PROF. DANIEL BRITO
 
 %Link do relatorio: <https://docs.google.com/document/d/12BtVcwYm_Q-KZEC8uthgxDNWhi0AqZwnXa0EbyerdB8/edit?usp=sharing>
-%Link da apresentacao:<https://www.overleaf.com/project/6332e89cac726f6047466f5d> 
+%Link da apresentacao:<https://www.overleaf.com/project/6332e89cac726f6047466f5d>
 
 %TRABALHO PDI
 clc
@@ -42,37 +42,43 @@ hold on
 
 %equalizando a imagem
 figure(3)
+subplot(2,2,1)
+imshow(Img_cinza);
+title('Imagem em escala de cinza');
+grid on
+hold on
+
 J=histeq(Img_cinza);
-subplot(1,2,1)
+subplot(2,2,2)
 imshow(J);
-title('Imagem em escala de cinza equalizada');
+title('Imagem em escala de cinza equalizada 1');
 grid on
 hold on
 
 Jeq=histeq(J);
-subplot(1,2,2)
-imhist(Jeq);
-title('Histograma da imagem em escala de cinza equalizada');
-grid on
-hold on
-
-figure(4)
-subplot(1,3,1)
+subplot(2,2,3)
 imshow(Jeq);
-title('Imagem equalizada em escala de cinza');
+title('Imagem em escala de cinza equalizada 2');
 grid on
 hold on
 
 %ajuste na imagem
 Img_ajuste = imadjust (Img_cinza, [0.4; 0.8], [0; 1]);
-subplot(1,3,2)
+subplot(2,2,4)
 imshow(Img_ajuste);
-title('Ajuste da imagem');
+title('Imagem com ajuste de intensidade');
 grid on
 hold on
 
-subplot(1,3,3)
+figure(4)
+subplot(1,2,1)
+imhist(Jeq);
+title('Histograma da imagem em escala de cinza equalizada');
+grid on
+hold on
+
+subplot(1,2,2)
 imhist(Img_ajuste);
-title('Histograma da imagem');
+title('Histograma da imagem ajustada');
 grid on
 hold on
