@@ -13,33 +13,66 @@ pkg load image     %roda biblioteca
 
 %leitura da imagem
 Imagem = imread("PDI.jpg");
+subplot(1,2,1)
 imshow(Imagem);
+title('Imagem original');
+grid on
+hold on
 
 %escala de cinza
 Img_cinza=rgb2gray(Imagem);
-figure(2)
+subplot(1,2,2)
 imshow(Img_cinza);
-figure(3)
+title('Imagem em escala de cinza');
+grid on
+hold on
+
+figure(2)
+subplot(1,2,1)
 imhist(Imagem);
-figure(4)
+title('Histograma da imagem original');
+grid on
+hold on
+
+subplot(1,2,2)
 imhist(Img_cinza);
+title('Histograma da imagem em escala de cinza');
+grid on
+hold on
 
 %equalizando a imagem
+figure(3)
 J=histeq(Img_cinza);
-figure(5)
+subplot(1,2,1)
 imshow(J);
+title('Imagem em escala de cinza equalizada');
+grid on
+hold on
+
 Jeq=histeq(J);
-figure(6)
+subplot(1,2,2)
 imhist(Jeq);
-figure(7)
+title('Histograma da imagem em escala de cinza equalizada');
+grid on
+hold on
+
+figure(4)
+subplot(1,3,1)
 imshow(Jeq);
+title('Imagem equalizada em escala de cinza');
+grid on
+hold on
 
 %ajuste na imagem
-Img_ajuste = imadjust (Img_cinza, [0.2; 0.9], [0; 1]);
-figure(8)
+Img_ajuste = imadjust (Img_cinza, [0.4; 0.8], [0; 1]);
+subplot(1,3,2)
 imshow(Img_ajuste);
-figure(9)
+title('Ajuste da imagem');
+grid on
+hold on
+
+subplot(1,3,3)
 imhist(Img_ajuste);
-
-
-               
+title('Histograma da imagem');
+grid on
+hold on
